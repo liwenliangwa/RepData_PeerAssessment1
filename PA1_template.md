@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
@@ -17,14 +12,6 @@ Let's load **_data.table_** package, then read the activity data into a variable
 
 ```r
 library(data.table)
-```
-
-```
-## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-```
-
-```r
 myData <- fread("activity.csv", sep = ",", na.string="NA", colClasses = c("integer", "character", "integer"))
 ```
 
@@ -84,7 +71,7 @@ Now let's plot the histogram of the total steps taken daily.
 hist(dailyTotal$totalSteps, main="Histogram of Total Steps per Day", col="green")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 And we can also calcualte the mean and median of the total number of steps taken per day:
 
@@ -136,7 +123,7 @@ head(avgSteps)
 plot(avgSteps$interval, avgSteps$avg, type="l", xlab="interval", ylab="average steps")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 The above time series plot shows the average daily activity pattern, and let's find out which 5 minute interval contains the maximum number of steps!
 
@@ -244,7 +231,7 @@ with(dailyTotal, hist(totalSteps, main="Histogram of Total Steps/Day",
         col="green", xlab="Total Steps (with missing steps)"))
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
 what about mean and median?
 
@@ -310,4 +297,4 @@ qplot(x=interval, y=x, data=avgStepsByWdType,
         geom="line", ylab="average numer of steps", facets= wdType ~ ., col=wdType) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
